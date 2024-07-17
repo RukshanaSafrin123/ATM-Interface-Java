@@ -1,14 +1,14 @@
 import java.util.Scanner;
 
 class BankAccount {
-    private String name;
-    private String username;
-    private String password;
-    private String accountNumber;
-    private float balance = 10000f;
-    private int transactions = 0;
-    private String transactionHistory = "";
-    private int pin = 7869;
+    String name;
+    String username;
+    String password;
+    String accountNumber;
+    float balance = 10000f;
+    int transactions = 0;
+    String transactionHistory = "";
+    int pin = 7869;
 
     public void register() {
         Scanner scanner = new Scanner(System.in);
@@ -20,7 +20,7 @@ class BankAccount {
         this.password = scanner.nextLine();
         System.out.print("Enter your Account Number: ");
         this.accountNumber = scanner.nextLine();
-        System.out.println("Registration Successful. Please Log into your Bank Account.");
+        System.out.println("Registrated Successfully. Now, You can Log into your Bank Account.");
     }
 
     public boolean login() {
@@ -52,7 +52,7 @@ class BankAccount {
         if (balance >= amount) {
             transactions++;
             balance -= amount;
-            System.out.println("Withdrawal Successful.");
+            System.out.println("Withdrawn Successfully.");
             transactionHistory += amount + " Rs Withdrawn\n";
         } else {
             System.out.println("Insufficient Balance.");
@@ -66,7 +66,7 @@ class BankAccount {
         if (amount <= 10000f) {
             transactions++;
             balance += amount;
-            System.out.println("Deposit Successful.");
+            System.out.println("Deposited Successfully.");
             transactionHistory += amount + " Rs Deposited\n";
         } else {
             System.out.println("Sorry. The limit is 10000.");
@@ -83,7 +83,7 @@ class BankAccount {
             if (amount <= 50000f) {
                 transactions++;
                 balance -= amount;
-                System.out.println("Successfully Transferred to " + recipient);
+                System.out.println("Transferred Successfully to " + recipient);
                 transactionHistory += amount + " Rs Transferred to " + recipient + "\n";
             } else {
                 System.out.println("Sorry. The limit is 50000.");
@@ -115,7 +115,7 @@ class BankAccount {
             pin = newPin;
             System.out.println("PIN successfully changed.");
         } else {
-            System.out.println("Incorrect current PIN.");
+            System.out.println("Incorrect current PIN. Please try again");
         }
     }
 }
@@ -144,7 +144,7 @@ public class ATMInterface {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("*** Welcome to Ushara Bank ***");
+        System.out.println("**** Welcome to Unity Bank ****");
         System.out.println("1. Register\n2. Exit");
         System.out.print("Choose an option: ");
         int choice = takeIntegerInput(2);
@@ -158,7 +158,7 @@ public class ATMInterface {
                 int ch = takeIntegerInput(2);
                 if (ch == 1) {
                     if (bankAccount.login()) {
-                        System.out.println("*** Welcome Back " + bankAccount.name + " ***");
+                        System.out.println("**** Welcome Back " + bankAccount.name + " ****");
                         boolean isFinished = false;
                         while (!isFinished) {
                             System.out.println("1. Withdraw\n2. Deposit\n3. Transfer\n4. Check Balance\n5. Transaction History\n6. Change PIN\n7. Exit");
@@ -194,12 +194,12 @@ public class ATMInterface {
                         }
                     }
                 } else {
-                    System.out.println("Exiting. Thank you for visiting Ushara Bank.");
+                    System.out.println("Exiting. Thank you for visiting Unity Bank.");
                     System.exit(0);
                 }
             }
         } else {
-            System.out.println("Exiting. Thank you for visiting Ushara Bank.");
+            System.out.println("Exiting. Thank you for visiting Unity Bank.");
             System.exit(0);
         }
     }
